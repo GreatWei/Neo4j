@@ -40,6 +40,13 @@
       <version>1.6.2</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-cypher -->
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-cypher</artifactId>
+      <version>3.4.7</version>
+    </dependency>
+
 
   </dependencies>
 
