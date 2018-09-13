@@ -23,7 +23,7 @@ public class SmallExample
             // and makes handling errors much easier.
             try (Transaction tx = session.beginTransaction())
             {
-                tx.run("MERGE (a:Person {name: {x}})", parameters("x", name));
+                tx.run("MERGE (a:Persona {name: {x}})", parameters("x", name));
                 tx.success();  // Mark this write as successful.
             }
         }
