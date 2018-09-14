@@ -39,5 +39,7 @@ public class MovieController {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("success", movieService.add());
         return map;
+
+
     }
 }
