@@ -16,6 +16,7 @@ public class Role {
     @Id
     @GeneratedValue
 	private Long id;
+    private String name;
 	private List<String> roles = new ArrayList<>();
 
 	@StartNode
@@ -48,17 +49,27 @@ public class Role {
 	    return movie;
 	}
 
-    public void addRoleName(String name) {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void addRoleName(String name) {
         if (this.roles == null) {
             this.roles = new ArrayList<>();
         }
         this.roles.add(name);
     }
 
+
 	@Override
 	public String toString() {
 		return "Role{" +
 				"id=" + id +
+				", name='" + name + '\'' +
 				", roles=" + roles +
 				", person=" + person +
 				", movie=" + movie +

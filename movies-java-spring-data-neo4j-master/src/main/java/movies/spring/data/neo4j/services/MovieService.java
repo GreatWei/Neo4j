@@ -73,7 +73,7 @@ public class MovieService {
     }
 
     @Transactional(readOnly = true)
-    public  Collection<Movie> graphs(int limit) {
+    public Collection<Movie> graphs(int limit) {
         Collection<Movie> result = movieRepository.graphs(limit);
         return result;
     }
@@ -81,21 +81,21 @@ public class MovieService {
     @Transactional
     public String add() {
 
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
 
             String uuid = UUID.randomUUID().toString();
 
-            Movie matrix = new Movie("The Matrix"+uuid, 1999, "Welcome to the Real World");
+            Movie matrix = new Movie("The Matrix" + uuid, 1999, "Welcome to the Real World");
 
             movieRepository.save(matrix);
 
-            Person keanu = new Person("Keanu Reeves"+uuid, 1964);
+            Person keanu = new Person("Keanu Reeves" + uuid, 1964);
 
             personRepository.save(keanu);
 
             Role neo = new Role(matrix, keanu);
             neo.addRoleName("Neo");
-
+            neo.setName(uuid);
             matrix.addRole(neo);
 
             movieRepository.save(matrix);
