@@ -52,8 +52,10 @@ public class Neo4jNativeJavaAPI {
 			 * 为user1添加Friend关系 注：Neo4j的关系是有向的箭头，正常来讲Friend关系应该是双向的，
 			 * 此处为了简单起见，将关系定义成单向的，不会影响后期的查询
 			 */
-			user1.createRelationshipTo(user2, MyRelationshipTypes.IS_FRIEND_OF);
-			user1.createRelationshipTo(user3, MyRelationshipTypes.IS_FRIEND_OF);
+			Relationship relationship11 = user1.createRelationshipTo(user2, MyRelationshipTypes.IS_FRIEND_OF);
+			relationship11.setProperty("friend", "1");
+			Relationship relationship12 = user1.createRelationshipTo(user3, MyRelationshipTypes.IS_FRIEND_OF);
+			relationship12.setProperty("friend", "2");
 			/**
 			 * 新增Movie节点 添加Lable以区分节点类型 每个节点设置name属性
 			 */
@@ -69,11 +71,11 @@ public class Neo4jNativeJavaAPI {
 			 * 为User节点和Movie节点之间添加HAS_SEEN关系, HAS_SEEN关系设置stars属性
 			 */
 			Relationship relationship1 = user1.createRelationshipTo(movie1, MyRelationshipTypes.HAS_SEEN);
-			relationship1.setProperty("stars", 5);
+			relationship1.setProperty("stars", 1);
 			Relationship relationship2 = user2.createRelationshipTo(movie3, MyRelationshipTypes.HAS_SEEN);
-			relationship2.setProperty("stars", 3);
+			relationship2.setProperty("stars", 2);
 			Relationship relationship6 = user2.createRelationshipTo(movie2, MyRelationshipTypes.HAS_SEEN);
-			relationship6.setProperty("stars", 6);
+			relationship6.setProperty("stars", 3);
 			Relationship relationship3 = user3.createRelationshipTo(movie1, MyRelationshipTypes.HAS_SEEN);
 			relationship3.setProperty("stars", 4);
 			Relationship relationship4 = user3.createRelationshipTo(movie2, MyRelationshipTypes.HAS_SEEN);

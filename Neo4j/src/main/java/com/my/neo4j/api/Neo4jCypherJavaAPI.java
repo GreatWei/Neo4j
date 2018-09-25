@@ -2,6 +2,10 @@ package com.my.neo4j.api;
 
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
+import org.neo4j.graphdb.index.Index;
+import org.neo4j.graphdb.index.IndexHits;
+import org.neo4j.graphdb.index.IndexManager;
+import org.neo4j.graphdb.index.RelationshipIndex;
 import org.neo4j.graphdb.traversal.Evaluators;
 
 import java.io.File;
@@ -30,7 +34,13 @@ public class Neo4jCypherJavaAPI {
 				startNode = (Node) result.next().get("p");
 				System.out.println(startNode.getId() + " : " + startNode.getProperty("name"));
 			}
-
+			
+			IndexManager index = graphDB.index();
+			boolean indexexits = index.existsForNodes("name");
+			System.out.println("indexexits:"+indexexits);
+			Index<Node> users = index.forNodes("USERS");
+		//	users.add(startNode, "name", startNode.getProperty("name"));
+			
 			// 路劲
 			for (Path position : graphDB.traversalDescription().depthFirst()
 					.relationships(MyRelationshipTypes.IS_FRIEND_OF, Direction.OUTGOING)
@@ -47,17 +57,26 @@ public class Neo4jCypherJavaAPI {
 				System.out.println("name:" + node.getProperty("name") + " id:" + node.getId());
 			}
 
+			RelationshipIndex isFriendof =index.forRelationships("IS_FRIEND_OF");
+			RelationshipIndex hasSeen =index.forRelationships("HAS_SEEN");
+			IndexHits<Relationship> reIndexHits;
 			// 节点关系
 			for (Relationship relationship : graphDB.traversalDescription().depthFirst()
 					.relationships(MyRelationshipTypes.IS_FRIEND_OF, Direction.OUTGOING)
 					.relationships(MyRelationshipTypes.HAS_SEEN, Direction.OUTGOING).evaluator(Evaluators.fromDepth(1))
 					.evaluator(Evaluators.toDepth(5)).traverse(startNode).relationships()) {
 				String name = relationship.getType().name() + " id:" + relationship.getId();
-				if ("HAS_SEEN".equals(name)) {
+				if ("HAS_SEEN".equals(relationship.getType().name())) {
 					name += " stars:" + relationship.getProperty("stars");
 				}
+			//	relationship.get
 				System.out.println("relationship:" + name);
 			}
+			
+			for(Node user: users.query("name","*")) {
+				System.out.println("query:"+user.getId()+"="+user.getProperty("name"));
+			}
+			
 			tx.success();
 			System.out.println("Done successfully");
 		} catch (Exception e) {
