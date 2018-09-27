@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.Collection;
 
-import movies.spring.data.neo4j.domain.Movie;
-import movies.spring.data.neo4j.domain.Person;
-import movies.spring.data.neo4j.domain.Role;
+import movies.spring.data.neo4j.domain.entity.Movie;
+import movies.spring.data.neo4j.domain.entity.Person;
+import movies.spring.data.neo4j.domain.entity.Role;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

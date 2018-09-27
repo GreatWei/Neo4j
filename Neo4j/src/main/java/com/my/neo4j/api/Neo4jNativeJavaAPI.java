@@ -26,13 +26,16 @@ public class Neo4jNativeJavaAPI {
 
 	public static void main(String[] args) {
 		// 指定 Neo4j 存储路径
-		File file = new File("E:\\TOOL\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
+		//File file = new File("E:\\TOOL\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
+		File file = new File("J:\\Neo4j\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
 		// Create a new Object of Graph Database
 		GraphDatabaseService graphDB = new GraphDatabaseFactory().newEmbeddedDatabase(file);
 		System.out.println("Server is up and Running");
 
 		// Register a Shutdown Hook
+		creatNode(graphDB);
 		registerShutdownHook(graphDB);
+		System.out.println("success");
 	}
 
 	public static void creatNode(final GraphDatabaseService graphDB) {
@@ -84,6 +87,7 @@ public class Neo4jNativeJavaAPI {
 			tx.success();
 			System.out.println("Done successfully");
 		} catch (Exception e) {
+			System.out.println("error"+e.toString());
 			e.printStackTrace();
 		} finally {
 			graphDB.shutdown(); // 关闭数据库

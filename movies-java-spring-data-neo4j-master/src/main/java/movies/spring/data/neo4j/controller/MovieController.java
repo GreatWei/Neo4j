@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import movies.spring.data.neo4j.domain.Movie;
+import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Michael J. Simons
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/movie")
 public class MovieController {
 
     @Autowired
@@ -36,8 +36,19 @@ public class MovieController {
 
     @GetMapping("/add")
     public Map<String, Object> add() {
+        System.out.println("add");
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("success", movieService.add());
+        return map;
+
+
+    }
+
+    @GetMapping("/All")
+    public Map<String, Object> All() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.All());
         return map;
 
 

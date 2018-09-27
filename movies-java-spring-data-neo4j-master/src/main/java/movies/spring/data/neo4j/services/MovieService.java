@@ -2,11 +2,14 @@ package movies.spring.data.neo4j.services;
 
 import java.util.*;
 
-import movies.spring.data.neo4j.domain.Movie;
-import movies.spring.data.neo4j.domain.Person;
-import movies.spring.data.neo4j.domain.Role;
+import movies.spring.data.neo4j.domain.Users.Movies;
+import movies.spring.data.neo4j.domain.Users.Users;
+import movies.spring.data.neo4j.domain.entity.Movie;
+import movies.spring.data.neo4j.domain.entity.Person;
+import movies.spring.data.neo4j.domain.entity.Role;
 import movies.spring.data.neo4j.repositories.MovieRepository;
 import movies.spring.data.neo4j.repositories.PersonRepository;
+import movies.spring.data.neo4j.repositories.UsersRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,9 @@ public class MovieService {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private UsersRepository usersRepository;
 
     private Map<String, Object> toD3Format(Collection<Movie> movies) {
         List<Map<String, Object>> nodes = new ArrayList<>();
@@ -81,26 +87,31 @@ public class MovieService {
     @Transactional
     public String add() {
 
-        for (int i = 0; i < 10; i++) {
+//        for (int i = 0; i < 10; i++) {
 
-            String uuid = UUID.randomUUID().toString();
+        String uuid = UUID.randomUUID().toString();
 
-            Movie matrix = new Movie("The Matrix" + uuid, 1999, "Welcome to the Real World");
+        Movie matrix = new Movie("The Matrix" + uuid, 1999, "Welcome to the Real World");
 
-            movieRepository.save(matrix);
+        movieRepository.save(matrix);
 
-            Person keanu = new Person("Keanu Reeves" + uuid, 1964);
+        Person keanu = new Person("Keanu Reeves" + uuid, 1964);
 
-            personRepository.save(keanu);
+        personRepository.save(keanu);
 
-            Role neo = new Role(matrix, keanu);
-            neo.addRoleName("Neo");
-            neo.setName(uuid);
-            matrix.addRole(neo);
+        Role neo = new Role(matrix, keanu);
+        neo.addRoleName("Neo");
+        neo.setName(uuid);
+        matrix.addRole(neo);
 
-            movieRepository.save(matrix);
-        }
+        movieRepository.save(matrix);
+        //  }
 
         return "success";
+    }
+
+    @Transactional
+    public Collection<Users> All() {
+        return usersRepository.AllFriend();
     }
 }
