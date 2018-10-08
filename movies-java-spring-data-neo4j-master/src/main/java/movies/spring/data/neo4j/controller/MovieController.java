@@ -23,6 +23,7 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
+    
 
     @GetMapping("/graph")
     public Collection<Movie> graph(@RequestParam(value = "limit", required = false) Integer limit) {
