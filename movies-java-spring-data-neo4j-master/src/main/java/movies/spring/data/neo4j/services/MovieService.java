@@ -114,4 +114,9 @@ public class MovieService {
     public Collection<Users> All() {
         return usersRepository.AllFriend();
     }
+
+    @Transactional
+    public Collection<Users> AllRelation() {
+        return usersRepository.AllRelation();
+    }
 }

@@ -12,6 +12,7 @@ import java.io.File;
 
 public class Neo4jCypherJavaAPI {
     public static void main(String[] args) {
+
         // 指定 Neo4j 存储路径
         //	File file = new File("E:\\TOOL\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
         File file = new File("J:\\Neo4j\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");

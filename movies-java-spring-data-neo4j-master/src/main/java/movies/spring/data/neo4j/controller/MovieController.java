@@ -54,4 +54,14 @@ public class MovieController {
 
 
     }
+
+    @GetMapping("/AllRelation")
+    public Map<String, Object> AllRelation() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.AllRelation());
+        return map;
+
+
+    }
 }

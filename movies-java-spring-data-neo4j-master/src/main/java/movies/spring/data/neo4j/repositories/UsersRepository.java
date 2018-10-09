@@ -15,4 +15,7 @@ public interface UsersRepository extends Neo4jRepository<Movies, Long> {
 
     @Query("match (users:USERS)-[r:HAS_SEEN]->(movies:MOVIES) return users,r,movies")
     Collection<Users> AllHaseen();
+
+    @Query("match (users:USERS{name:\"John Johnson\"})-[r*1..2]->(m) return users,r,m")
+    Collection<Users> AllRelation();
 }

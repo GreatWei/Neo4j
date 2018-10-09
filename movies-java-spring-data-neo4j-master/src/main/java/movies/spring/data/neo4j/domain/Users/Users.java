@@ -20,28 +20,28 @@ public class Users {
 
     @JsonIgnoreProperties("startUsers")
     @Relationship(type = "IS_FRIEND_OF")
-    private List<IS_FRIEND_OF>  friends= new ArrayList<IS_FRIEND_OF>();
+    private List<IS_FRIEND_OF> is_friend_ofs = new ArrayList<IS_FRIEND_OF>();
 
     //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
     @JsonIgnoreProperties("users")
     @Relationship(type = "HAS_SEEN")
-    private List<HAS_SEEN> users_seens = new ArrayList<HAS_SEEN>();
+    private List<HAS_SEEN> has_seens = new ArrayList<HAS_SEEN>();
 
 
-    public List<IS_FRIEND_OF> getFriends() {
-        return friends;
+    public List<IS_FRIEND_OF> getIs_friend_ofs() {
+        return is_friend_ofs;
     }
 
-    public void setFriends(List<IS_FRIEND_OF> friends) {
-        this.friends = friends;
+    public void setIs_friend_ofs(List<IS_FRIEND_OF> is_friend_ofs) {
+        this.is_friend_ofs = is_friend_ofs;
     }
 
-    public List<HAS_SEEN> getUsers_seens() {
-        return users_seens;
+    public List<HAS_SEEN> getHas_seens() {
+        return has_seens;
     }
 
-    public void setUsers_seens(List<HAS_SEEN> users_seens) {
-        this.users_seens = users_seens;
+    public void setHas_seens(List<HAS_SEEN> has_seens) {
+        this.has_seens = has_seens;
     }
 
     public Long getId() {
