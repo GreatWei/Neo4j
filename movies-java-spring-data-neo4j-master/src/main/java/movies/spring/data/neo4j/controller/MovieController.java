@@ -64,4 +64,14 @@ public class MovieController {
 
 
     }
+
+    @GetMapping("/shortPath")
+    public Map<String, Object> shortPath() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.shortPath());
+        return map;
+
+
+    }
 }

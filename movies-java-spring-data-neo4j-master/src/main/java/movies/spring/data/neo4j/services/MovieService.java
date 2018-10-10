@@ -119,4 +119,9 @@ public class MovieService {
     public Collection<Users> AllRelation() {
         return usersRepository.AllRelation();
     }
+
+    @Transactional
+    public Collection<Users> shortPath() {
+        return usersRepository.shortPath();
+    }
 }
