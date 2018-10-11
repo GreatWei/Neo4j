@@ -10,7 +10,7 @@ import org.neo4j.ogm.annotation.*;
 /**
  * @author Mark Angrish
  */
-@RelationshipEntity(type = "ACTED_IN")
+@RelationshipEntity(type = "ACTED_INsss")
 public class Role {
 
     @Id

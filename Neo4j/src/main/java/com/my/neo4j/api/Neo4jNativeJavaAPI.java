@@ -26,8 +26,8 @@ public class Neo4jNativeJavaAPI {
 
 	public static void main(String[] args) {
 		// 指定 Neo4j 存储路径
-		//File file = new File("E:\\TOOL\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
-		File file = new File("J:\\Neo4j\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
+		File file = new File("E:\\TOOL\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
+		//File file = new File("J:\\Neo4j\\neo4j-community-3.4.5-windows-chs-2.0.0-with-samples\\data\\databases\\temp");
 		// Create a new Object of Graph Database
 		GraphDatabaseService graphDB = new GraphDatabaseFactory().newEmbeddedDatabase(file);
 		System.out.println("Server is up and Running");
@@ -84,6 +84,32 @@ public class Neo4jNativeJavaAPI {
 			Relationship relationship4 = user3.createRelationshipTo(movie2, MyRelationshipTypes.HAS_SEEN);
 			relationship4.setProperty("stars", 5);
 
+
+			/**
+			 *
+			 * 新增ROLES节点 添加Lable以区分节点类型 每个节点设置name属性
+			 *
+			 * */
+
+			Node roles1 = graphDB.createNode(MyLabels.ROLES);
+			roles1.setProperty("name", "FaFFF");
+
+			Node roles2 = graphDB.createNode(MyLabels.ROLES);
+			roles2.setProperty("name", "AlAAA");
+
+			Node roles3 = graphDB.createNode(MyLabels.ROLES);
+			roles3.setProperty("name", "HeHHH");
+
+			Relationship relationshiproles1 = roles1.createRelationshipTo(movie1, MyRelationshipTypes.ACTED_IN);
+			relationshiproles1.setProperty("name", "F");
+
+			Relationship relationshiproles2 = roles2.createRelationshipTo(movie2, MyRelationshipTypes.ACTED_IN);
+			relationshiproles2.setProperty("name", "A");
+
+			Relationship relationshiproles3 = roles3.createRelationshipTo(movie3, MyRelationshipTypes.ACTED_IN);
+			relationshiproles3.setProperty("name", "H");
+
+
 			tx.success();
 			System.out.println("Done successfully");
 		} catch (Exception e) {
@@ -99,12 +125,12 @@ public class Neo4jNativeJavaAPI {
  * Label类型枚举类
  */
 enum MyLabels implements Label {
-	MOVIES, USERS
+	MOVIES, USERS,ROLES
 }
 
 /**
  * 关系类型枚举类
  */
 enum MyRelationshipTypes implements RelationshipType {
-	IS_FRIEND_OF, HAS_SEEN
+	IS_FRIEND_OF, HAS_SEEN,ACTED_IN
 }

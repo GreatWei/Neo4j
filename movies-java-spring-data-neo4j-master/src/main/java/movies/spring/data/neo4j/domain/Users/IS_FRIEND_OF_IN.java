@@ -1,19 +1,17 @@
 package movies.spring.data.neo4j.domain.Users;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RelationshipEntity(type = "IS_FRIEND_OF")
-public class IS_FRIEND_OF {
+public class IS_FRIEND_OF_IN {
     @Id
     @GeneratedValue
     private Long id;
     private String friend;
 
-    @JsonIgnore
     @StartNode
     private Users startUsers;
 

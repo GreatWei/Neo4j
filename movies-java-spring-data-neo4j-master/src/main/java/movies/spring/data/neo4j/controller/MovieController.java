@@ -84,4 +84,16 @@ public class MovieController {
 
 
     }
+
+    @GetMapping("/path_Roles")
+    public Map<String, Object> path_Roles() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.path_Roles());
+        return map;
+
+
+    }
+
+
 }

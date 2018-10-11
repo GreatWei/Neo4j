@@ -1,14 +1,15 @@
 package movies.spring.data.neo4j.repositories;
 
 import movies.spring.data.neo4j.domain.Users.Movies;
+import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 
-
+@Repository
 public interface UsersRepository extends Neo4jRepository<Movies, Long> {
 
 
@@ -26,7 +27,10 @@ public interface UsersRepository extends Neo4jRepository<Movies, Long> {
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
-    @Query("match (n:USERS{name:\"Kate Smith\"}),p=((n)-[*]-(m)) return p")
+    @Query("match (n:USERS{name:\"Jack Jeffries\"}),p=((n)-[*]-(m)) return p")
     Collection<Users> path();
+
+
+
 
 }

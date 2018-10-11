@@ -2,13 +2,14 @@ package movies.spring.data.neo4j.services;
 
 import java.util.*;
 
-import movies.spring.data.neo4j.domain.Users.Movies;
+import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.domain.entity.Person;
 import movies.spring.data.neo4j.domain.entity.Role;
 import movies.spring.data.neo4j.repositories.MovieRepository;
 import movies.spring.data.neo4j.repositories.PersonRepository;
+import movies.spring.data.neo4j.repositories.RolesRepository;
 import movies.spring.data.neo4j.repositories.UsersRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,9 @@ public class MovieService {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private RolesRepository rolesRepository;
 
     private Map<String, Object> toD3Format(Collection<Movie> movies) {
         List<Map<String, Object>> nodes = new ArrayList<>();
@@ -129,4 +133,9 @@ public class MovieService {
     public Collection<Users> path() {
         return usersRepository.path();
     }
+
+    public Collection<Roles> path_Roles() {
+        return rolesRepository.path_Roles();
+    }
+
 }
