@@ -124,4 +124,9 @@ public class MovieService {
     public Collection<Users> shortPath() {
         return usersRepository.shortPath();
     }
+
+    @Transactional
+    public Collection<Users> path() {
+        return usersRepository.path();
+    }
 }

@@ -74,4 +74,14 @@ public class MovieController {
 
 
     }
+
+    @GetMapping("/path")
+    public Map<String, Object> path() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.path());
+        return map;
+
+
+    }
 }

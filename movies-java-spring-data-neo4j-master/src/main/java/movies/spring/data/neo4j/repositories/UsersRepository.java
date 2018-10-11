@@ -26,4 +26,7 @@ public interface UsersRepository extends Neo4jRepository<Movies, Long> {
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
+    @Query("match (n:USERS{name:\"Kate Smith\"}),p=((n)-[*]-(m)) return p")
+    Collection<Users> path();
+
 }
