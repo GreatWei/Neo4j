@@ -20,27 +20,27 @@ public class Movies {
 
     @JsonIgnoreProperties("movies")
     @Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
-    List<ACTED_IN_IN>  in_acted_in ;
+    List<ACTED_IN>  in_acted_in ;
 
 
     //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
     @JsonIgnoreProperties("movies")
     @Relationship(type = "HAS_SEEN",direction = Relationship.INCOMING)
-    private List<HAS_SEEN_IN> in_has_seens = new ArrayList<HAS_SEEN_IN>();
+    private List<HAS_SEEN> in_has_seens = new ArrayList<HAS_SEEN>();
 
-    public List<HAS_SEEN_IN> getIn_has_seens() {
+    public List<HAS_SEEN> getIn_has_seens() {
         return in_has_seens;
     }
 
-    public void setIn_has_seens(List<HAS_SEEN_IN> in_has_seens) {
+    public void setIn_has_seens(List<HAS_SEEN> in_has_seens) {
         this.in_has_seens = in_has_seens;
     }
 
-    public List<ACTED_IN_IN> getIn_acted_in() {
+    public List<ACTED_IN> getIn_acted_in() {
         return in_acted_in;
     }
 
-    public void setIn_acted_in(List<ACTED_IN_IN> in_acted_in) {
+    public void setIn_acted_in(List<ACTED_IN> in_acted_in) {
         this.in_acted_in = in_acted_in;
     }
 

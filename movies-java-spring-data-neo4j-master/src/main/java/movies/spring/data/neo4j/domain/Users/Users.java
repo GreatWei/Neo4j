@@ -25,18 +25,18 @@ public class Users {
 
     @JsonIgnoreProperties("endUsers")
     @Relationship(type = "IS_FRIEND_OF",direction = Relationship.INCOMING)
-    private List<IS_FRIEND_OF_IN> is_friend_of_in = new ArrayList<IS_FRIEND_OF_IN>();
+    private List<IS_FRIEND_OF> is_friend_of_in = new ArrayList<IS_FRIEND_OF>();
 
     //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
     @JsonIgnoreProperties("users")
     @Relationship(type = "HAS_SEEN")
     private List<HAS_SEEN> has_seens = new ArrayList<HAS_SEEN>();
 
-    public List<IS_FRIEND_OF_IN> getIs_friend_of_in() {
+    public List<IS_FRIEND_OF> getIs_friend_of_in() {
         return is_friend_of_in;
     }
 
-    public void setIs_friend_of_in(List<IS_FRIEND_OF_IN> is_friend_of_in) {
+    public void setIs_friend_of_in(List<IS_FRIEND_OF> is_friend_of_in) {
         this.is_friend_of_in = is_friend_of_in;
     }
 
