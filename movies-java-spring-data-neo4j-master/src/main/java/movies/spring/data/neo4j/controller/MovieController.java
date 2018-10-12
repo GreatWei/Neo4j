@@ -76,20 +76,20 @@ public class MovieController {
     }
 
     @GetMapping("/path")
-    public Map<String, Object> path() {
+    public Map<String, Object> path(String name) {
         System.out.println("All");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("success", movieService.path());
+        map.put("success", movieService.path(name));
         return map;
 
 
     }
 
     @GetMapping("/path_Roles")
-    public Map<String, Object> path_Roles() {
+    public Map<String, Object> path_Roles(String name) {
         System.out.println("All");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("success", movieService.path_Roles());
+        map.put("success", movieService.path_Roles(name));
         return map;
 
 

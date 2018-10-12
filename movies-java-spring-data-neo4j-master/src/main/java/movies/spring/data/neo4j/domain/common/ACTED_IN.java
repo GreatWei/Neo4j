@@ -1,6 +1,8 @@
-package movies.spring.data.neo4j.domain.Users;
+package movies.spring.data.neo4j.domain.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import movies.spring.data.neo4j.domain.Users.Movies;
+import movies.spring.data.neo4j.domain.Users.Roles;
 import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -17,6 +19,14 @@ public class ACTED_IN {
 
     @EndNode
     private Movies movies;
+
+    public ACTED_IN(){
+
+    }
+    public ACTED_IN(Roles roles,Movies movies){
+        this.roles=roles;
+        this.movies=movies;
+    }
 
     public Long getId() {
         return id;
