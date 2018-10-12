@@ -1,6 +1,8 @@
-package movies.spring.data.neo4j.domain.Users;
+package movies.spring.data.neo4j.domain.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import movies.spring.data.neo4j.domain.Users.Movies;
+import movies.spring.data.neo4j.domain.Users.Users;
 import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,6 +18,15 @@ public class HAS_SEEN {
 
     @EndNode
     private Movies movies;
+
+    public  HAS_SEEN(){
+
+    }
+
+    public HAS_SEEN(Users users,Movies movies){
+        this.users=users;
+        this.movies=movies;
+    }
 
     public Users getUsers() {
         return users;

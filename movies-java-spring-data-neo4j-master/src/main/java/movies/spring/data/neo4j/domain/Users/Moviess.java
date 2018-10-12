@@ -2,18 +2,16 @@ package movies.spring.data.neo4j.domain.Users;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import movies.spring.data.neo4j.domain.common.ACTED_IN;
-import movies.spring.data.neo4j.domain.common.HAS_SEEN;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NodeEntity(label = "MOVIES")
-public class Movies {
+public class Moviess {
 
     @Id
     @GeneratedValue

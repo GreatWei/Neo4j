@@ -130,12 +130,14 @@ public class MovieService {
     }
 
     @Transactional
-    public Collection<Users> path() {
-        return usersRepository.path();
+    public Map<String,Object> path(String name) {
+        Map<String,Object> map= new HashMap<String, Object>();
+        map.put("data",usersRepository.path(name));
+        return map;
     }
 
-    public Collection<Roles> path_Roles() {
-        return rolesRepository.path_Roles();
+    public Collection<Roles> path_Roles(String name) {
+        return rolesRepository.path_Roles(name);
     }
 
 }
