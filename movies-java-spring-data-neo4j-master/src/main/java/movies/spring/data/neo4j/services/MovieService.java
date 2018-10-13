@@ -4,6 +4,7 @@ import java.util.*;
 
 import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
+import movies.spring.data.neo4j.domain.common.LabelClassName;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.domain.entity.Person;
 import movies.spring.data.neo4j.domain.entity.Role;
@@ -130,9 +131,16 @@ public class MovieService {
     }
 
     @Transactional
-    public Map<String,Object> path(String name) {
-        Map<String,Object> map= new HashMap<String, Object>();
-        map.put("data",usersRepository.path(name));
+    public Map<String, Object> path(String name) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name);
+
+        for (Map<String, Map<String, Object>> mapMap : mapList) {
+            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
+            Users n =  (Users)mapMap.get("n");
+            System.out.println(n.toString());
+        }
+        map.put("data", mapList);
         return map;
     }
 
