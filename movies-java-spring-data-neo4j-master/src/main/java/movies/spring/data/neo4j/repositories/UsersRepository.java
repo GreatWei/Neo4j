@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface UsersRepository extends Neo4jRepository<Movies, Long> {
@@ -28,8 +30,8 @@ public interface UsersRepository extends Neo4jRepository<Movies, Long> {
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
-    @Query("match (n:USERS{name:{name}}),p=((n)-[r]-(m)) return p")
-    Collection<Users> path(@Param("name") String name);
+    @Query("match (n:USERS{name:{name}}),p=((n)-[r*1..2]-(m)) return n,r,m")
+    List<Map<String,Map<String,Object>>> path(@Param("name") String name);
 
 
 

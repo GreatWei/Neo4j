@@ -3,6 +3,7 @@ package movies.spring.data.neo4j.domain.Users;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import movies.spring.data.neo4j.domain.common.ACTED_IN;
 import movies.spring.data.neo4j.domain.common.HAS_SEEN;
+import movies.spring.data.neo4j.domain.common.LabelClassName;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -13,30 +14,22 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NodeEntity(label = "MOVIES")
-public class Movies {
+public class Movies extends LabelClassName {
 
     @Id
     @GeneratedValue
     private Long id;
     private String name;
 
-   @JsonIgnoreProperties("movies")
+    @JsonIgnoreProperties("movies")
     @Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
     private List<ACTED_IN> in_acted_in;
 
+  //  private final String className = "Movies";
 
-//    //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
-//    @JsonIgnoreProperties("movies")
-//    @Relationship(type = "HAS_SEEN", direction = Relationship.INCOMING)
-//    private List<HAS_SEEN> in_has_seen_movies = new ArrayList<HAS_SEEN>();
-
-//    public List<HAS_SEEN> getIn_has_seen_movies() {
-//        return in_has_seen_movies;
-//    }
-//
-//    public void setIn_has_seen_movies(List<HAS_SEEN> in_has_seen_movies) {
-//        this.in_has_seen_movies = in_has_seen_movies;
-//    }
+    public String getClassName() {
+        return "Movies";
+    }
 
     public List<ACTED_IN> getIn_acted_in() {
         return in_acted_in;
