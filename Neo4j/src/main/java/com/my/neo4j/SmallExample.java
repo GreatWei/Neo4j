@@ -55,7 +55,7 @@ public class SmallExample
 
     public static void main(String... args)
     {
-        SmallExample example = new SmallExample("bolt://localhost:7687", "neo4j", "neo4j");
+        SmallExample example = new SmallExample("bolt://localhost:7687", "neo4j", "asdf");
         example.addPerson("AdaWE");
     //    example.addPerson("Alice");
     //    example.addPerson("Bob");

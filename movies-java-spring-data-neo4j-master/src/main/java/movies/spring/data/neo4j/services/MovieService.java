@@ -2,6 +2,8 @@ package movies.spring.data.neo4j.services;
 
 import java.util.*;
 
+import movies.spring.data.neo4j.config.DataSourceType;
+import movies.spring.data.neo4j.config.ToDataSource;
 import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
 import movies.spring.data.neo4j.domain.common.LabelClassName;
@@ -130,6 +132,11 @@ public class MovieService {
         return usersRepository.shortPath();
     }
 
+    public Collection<Roles> path_Roles(String name) {
+        return rolesRepository.path_Roles(name);
+    }
+
+  //  @ToDataSource(DataSourceType.Neo4j)
     @Transactional
     public Map<String, Object> path(String name) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -142,10 +149,6 @@ public class MovieService {
         }
         map.put("data", mapList);
         return map;
-    }
-
-    public Collection<Roles> path_Roles(String name) {
-        return rolesRepository.path_Roles(name);
     }
 
 }
