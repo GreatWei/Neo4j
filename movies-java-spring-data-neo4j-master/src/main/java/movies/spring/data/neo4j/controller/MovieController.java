@@ -22,7 +22,6 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    
 
     @GetMapping("/graph")
     public Collection<Movie> graph(@RequestParam(value = "limit", required = false) Integer limit) {
@@ -30,7 +29,7 @@ public class MovieController {
     }
 
     @GetMapping("/graphs")
-    public  Collection<Movie> graphs(@RequestParam(value = "limit", required = false) Integer limit) {
+    public Collection<Movie> graphs(@RequestParam(value = "limit", required = false) Integer limit) {
         return movieService.graphs(limit == null ? 100 : limit);
     }
 
@@ -75,10 +74,20 @@ public class MovieController {
     }
 
     @GetMapping("/path")
-    public Map<String, Object> path(String name) {
+    public Map<String, Object> path(String name, int deep) {
         System.out.println("All");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("success", movieService.path(name));
+        map.put("success", movieService.path(name, deep));
+        return map;
+
+
+    }
+
+    @GetMapping("/mixPath")
+    public Map<String, Object> mixPath() {
+        System.out.println("All");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", movieService.mixPath());
         return map;
 
 
@@ -99,25 +108,25 @@ public class MovieController {
     private UserService userService;
 
     @RequestMapping("/EhcacheTest")
-    public String EhcacheTest(){
-  //      logger.info("进行Encache缓存测试");
+    public String EhcacheTest() {
+        //      logger.info("进行Encache缓存测试");
         System.out.println("====生成第一个用户====");
         UserInfo user1 = new UserInfo();
         //生成第一个用户的唯一标识符 UUID
         String u1_uuid = UUID.randomUUID().toString();
         //去掉 UUID 的 - 符号
-        String uuid1 = u1_uuid.substring(0,8)+u1_uuid.substring(9,13)+u1_uuid.substring(14,18)+u1_uuid.substring(19,23)+u1_uuid.substring(24);
-        user1.setName("张三"+ new Random().doubles());
+        String uuid1 = u1_uuid.substring(0, 8) + u1_uuid.substring(9, 13) + u1_uuid.substring(14, 18) + u1_uuid.substring(19, 23) + u1_uuid.substring(24);
+        user1.setName("张三" + new Random().doubles());
         user1.setAge("18");
         user1.setUuid(uuid1);
-        if (userService.save(user1) == 0){
+        if (userService.save(user1) == 0) {
             throw new JdbcException("用户对象插入数据库失败");
         }
 
         //第一次查询
-        System.out.println("find:"+userService.findByUuid(user1.getUuid()));
+        System.out.println("find:" + userService.findByUuid(user1.getUuid()));
         //通过缓存查询
-        System.out.println("find:"+userService.findByUuid(user1.getUuid()));
+        System.out.println("find:" + userService.findByUuid(user1.getUuid()));
 
         System.out.println("====修改数据====");
         UserInfo user2 = new UserInfo();
@@ -126,7 +135,7 @@ public class MovieController {
         user2.setUuid(user1.getUuid());
         try {
             System.out.println(userService.update(user2));
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

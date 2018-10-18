@@ -138,17 +138,31 @@ public class MovieService {
 
   //  @ToDataSource(DataSourceType.Neo4j)
     @Transactional
-    public Map<String, Object> path(String name) {
+    public Map<String, Object> path(String name,int deep) {
         Map<String, Object> map = new HashMap<String, Object>();
-        List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name);
+        String[] list = name.split(",");
+        List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name,"",null);
 
-        for (Map<String, Map<String, Object>> mapMap : mapList) {
-            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
-            Users n =  (Users)mapMap.get("n");
-            System.out.println(n.toString());
-        }
+//        for (Map<String, Map<String, Object>> mapMap : mapList) {
+//            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
+//            Users n =  (Users)mapMap.get("n");
+//            System.out.println(n.toString());
+//        }
         map.put("data", mapList);
         return map;
     }
-
+    @Transactional
+    public Map<String, Object> mixPath() {
+        Map<String, Object> map = new HashMap<String, Object>();
+  //      String[] list = name.split(",");
+    //    List<Map<String, Map<String, Object>>> mapList = usersRepository.mixPath();
+     //   List<Users> mapList = usersRepository.mixPath();
+//        for (Map<String, Map<String, Object>> mapMap : mapList) {
+//            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
+//            Users n =  (Users)mapMap.get("n");
+//            System.out.println(n.toString());
+//        }
+        map.put("data", usersRepository.mixPath());
+        return map;
+    }
 }

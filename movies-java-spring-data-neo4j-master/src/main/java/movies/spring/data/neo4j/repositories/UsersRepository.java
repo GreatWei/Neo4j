@@ -1,5 +1,7 @@
 package movies.spring.data.neo4j.repositories;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import movies.spring.data.neo4j.domain.Users.Movies;
 import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
@@ -13,8 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface UsersRepository extends Neo4jRepository<Movies, Long> {
-
+public interface UsersRepository extends Neo4jRepository<Map<String, Map<String, Object>>, Long> {
 
 
     @Query("match (startUsers:USERS)-[r:IS_FRIEND_OF]->(endUsers:USERS) return startUsers,r,endUsers")
@@ -30,10 +31,23 @@ public interface UsersRepository extends Neo4jRepository<Movies, Long> {
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
-    @Query("match (n:USERS{name:{name}}),p=((n)-[r*1..2]-(m)) return n,r,m")
-    List<Map<String,Map<String,Object>>> path(@Param("name") String name);
+    @Query("match (n:USERS)-[r]-(m) where n.name =\"Kate Smith\" return n,r,m\n" +
+            "union\n" +
+            "match (n:MOVIES)-[r]-(m) where n.name=\"Fargo\" return n,r,m \n" +
+            "union\n" +
+            "match (n:USERS)-[r]-(m) where n.name =\"Kate Smith\" return n,r,m")
+    List<Map<String, Map<String, Object>>> path(@Param("name") String name, @Param("deep") String deep, @Param("nameList") String[] nameList);
 
+    @Query("optional match(u:USERS) where u.name in[\"Kate Smith\",\"John Johnson\"] \n" +
+            "optional match(m:MOVIES) where m.name in[\"Alien\"] \n" +
+            "optional match(r:ROLES) where r.name in[\"AlAAA\"]\n" +
+            "with collect(u)+collect(m)+collect(r) as nodes\n" +
+            "unwind nodes as source\n" +
+            "unwind nodes as target\n" +
+            "with source,target where id(source)<id(target)\n" +
+            "match path=allshortestpaths((source)-[r*1..]-(target)) where all(x in nodes(path) where 1=1)\n" +
+            "with path\n" +
+            "return path\n")
 
-
-
+    List<List<JSONArray>> mixPath();
 }
