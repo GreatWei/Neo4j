@@ -26,7 +26,7 @@ public class Movies extends LabelClassName {
     private List<ACTED_IN> in_acted_in;
 
   //  private final String className = "Movies";
-
+  private String className = "Movies";
     public String getClassName() {
         return "Movies";
     }
@@ -53,5 +53,26 @@ public class Movies extends LabelClassName {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    private String mySelf = "Movies";
+
+    public String getMySelf() {
+        return mySelf;
+    }
+
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
+
+    @Override
+    public String toString() {
+        return "Movies{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", in_acted_in=" + in_acted_in +
+                ", className='" + className + '\'' +
+                ", mySelf='" + mySelf + '\'' +
+                '}';
     }
 }

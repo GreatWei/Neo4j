@@ -7,7 +7,7 @@ import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RelationshipEntity(type = "ACTED_IN")
-public class ACTED_IN {
+public class ACTED_IN extends  LabelClassName{
 
     @Id
     @GeneratedValue
@@ -19,14 +19,15 @@ public class ACTED_IN {
 
     @EndNode
     private Movies movies;
+    private String className = "ACTED_IN";
 
+    public String getClassName() {
+        return "ACTED_IN";
+    }
     public ACTED_IN(){
 
     }
-    public ACTED_IN(Roles roles,Movies movies){
-        this.roles=roles;
-        this.movies=movies;
-    }
+
 
     public Long getId() {
         return id;
@@ -58,5 +59,27 @@ public class ACTED_IN {
 
     public void setMovies(Movies movies) {
         this.movies = movies;
+    }
+
+    private String mySelf = "ACTED_IN";
+
+    public String getMySelf() {
+        return mySelf;
+    }
+
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
+
+    @Override
+    public String toString() {
+        return "ACTED_IN{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", roles=" + roles +
+                ", movies=" + movies +
+                ", className='" + className + '\'' +
+                ", mySelf='" + mySelf + '\'' +
+                '}';
     }
 }

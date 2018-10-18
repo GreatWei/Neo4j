@@ -25,7 +25,7 @@ public class Users extends LabelClassName {
     @Relationship(type = "IS_FRIEND_OF")
     private List<IS_FRIEND_OF> out_friend_of_user = new ArrayList<IS_FRIEND_OF>();
 
-
+    private String className = "Users";
     //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
     @JsonIgnoreProperties("users")
     @Relationship(type = "HAS_SEEN", direction = Relationship.OUTGOING)
@@ -75,27 +75,15 @@ public class Users extends LabelClassName {
         return "Users";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Users)) return false;
 
-        Users users = (Users) o;
+    private String mySelf = "Users";
 
-        if (getId() != null ? !getId().equals(users.getId()) : users.getId() != null) return false;
-        if (getName() != null ? !getName().equals(users.getName()) : users.getName() != null) return false;
-        if (getOut_friend_of_user() != null ? !getOut_friend_of_user().equals(users.getOut_friend_of_user()) : users.getOut_friend_of_user() != null)
-            return false;
-        return getHas_seen_movies() != null ? getHas_seen_movies().equals(users.getHas_seen_movies()) : users.getHas_seen_movies() == null;
+    public String getMySelf() {
+        return mySelf;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getOut_friend_of_user() != null ? getOut_friend_of_user().hashCode() : 0);
-        result = 31 * result + (getHas_seen_movies() != null ? getHas_seen_movies().hashCode() : 0);
-        return result;
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
     }
 
     @Override
@@ -104,7 +92,9 @@ public class Users extends LabelClassName {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", out_friend_of_user=" + out_friend_of_user +
+                ", className='" + className + '\'' +
                 ", has_seen_movies=" + has_seen_movies +
+                ", mySelf='" + mySelf + '\'' +
                 '}';
     }
 }

@@ -31,11 +31,11 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
-    @Query("match (n:USERS)-[r]-(m) where n.name =\"Kate Smith\" return n,r,m\n" +
+    @Query("match (n:USERS)-[r*1..1]-(m) where n.name =\"Kate Smith\" return r,n,m\n" +
             "union\n" +
-            "match (n:MOVIES)-[r]-(m) where n.name=\"Fargo\" return n,r,m \n" +
+            "match (n:MOVIES)-[r*1..1]-(m) where n.name=\"Fargo\" return r,n,m\n" +
             "union\n" +
-            "match (n:USERS)-[r]-(m) where n.name =\"Kate Smith\" return n,r,m")
+            "match (n:USERS)-[r*1..1]-(m) where n.name =\"Kate Smith\" return r,n,m")
     List<Map<String, Map<String, Object>>> path(@Param("name") String name, @Param("deep") String deep, @Param("nameList") String[] nameList);
 
     @Query("optional match(u:USERS) where u.name in[\"Kate Smith\",\"John Johnson\"] \n" +
@@ -46,8 +46,25 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
             "unwind nodes as target\n" +
             "with source,target where id(source)<id(target)\n" +
             "match path=allshortestpaths((source)-[r*1..]-(target)) where all(x in nodes(path) where 1=1)\n" +
-            "with path\n" +
-            "return path\n")
+            "with source,r,target\n" +
+            "return r\n")
+    List<Map<String, Map<String, Object>>> mixPath();
 
-    List<List<JSONArray>> mixPath();
+    @Query("optional match(u:USERS) where u.name in[\"John Johnson\"] \n" +
+            "optional match(m:MOVIES) where m.name in[\"Alien\"] \n" +
+            "optional match(r:ROLES) where r.name in[\"AlAAA\"]\n" +
+            "with collect(u)+collect(m)+collect(r) as nodes\n" +
+            "unwind nodes as source\n" +
+            "unwind nodes as target\n" +
+            "with source,target where id(source)<id(target)\n" +
+            "match path=allshortestpaths((source)-[r*1..]-(target)) where all(x in nodes(path) where 1=1)\n" +
+            "with r\n" +
+            "match (n)-[r1]-(m) where r1 in r \n"+
+            "return n,r1,m\n")
+    List<Map<String, Map<String, Object>>> mixPath2();
+
+
+    @Query(" match (n) return n")
+    List<Map<String, Map<String, Object>>> node();
+
 }

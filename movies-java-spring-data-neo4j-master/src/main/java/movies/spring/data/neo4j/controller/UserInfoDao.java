@@ -4,14 +4,14 @@ package movies.spring.data.neo4j.controller;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
+//@Mapper
 public interface UserInfoDao {
 
-    void delete(@Param("uuid") String uuid);
-
-    UserInfo update(UserInfo user);
-
-    UserInfo findByUuid(@Param("uuid") String uuid);
-
-    int save(UserInfo user);
+//    void delete(@Param("uuid") String uuid);
+//
+//    UserInfo update(UserInfo user);
+//
+//    UserInfo findByUuid(@Param("uuid") String uuid);
+//
+//    int save(UserInfo user);
 }

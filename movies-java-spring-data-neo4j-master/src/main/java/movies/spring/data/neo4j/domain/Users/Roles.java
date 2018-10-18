@@ -18,7 +18,7 @@ public class Roles extends LabelClassName {
     private String name;
 
    // private final String className = "Roles";
-
+    private String className = "Roles";
     public String getClassName() {
         return "Roles";
     }
@@ -37,5 +37,24 @@ public class Roles extends LabelClassName {
 
     public void setName(String name) {
         this.name = name;
+    }
+    private String mySelf = "Roles";
+
+    public String getMySelf() {
+        return mySelf;
+    }
+
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
+
+    @Override
+    public String toString() {
+        return "Roles{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", className='" + className + '\'' +
+                ", mySelf='" + mySelf + '\'' +
+                '}';
     }
 }

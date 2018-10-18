@@ -1,11 +1,13 @@
 package movies.spring.data.neo4j.domain.common;
 
 public class LabelClassName {
-    private String className = "none";
+    private String mySelf = "LabelClassName";
 
-    public String getClassName() {
-        return className;
+    public String getMySelf() {
+        return mySelf;
     }
 
-
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
 }

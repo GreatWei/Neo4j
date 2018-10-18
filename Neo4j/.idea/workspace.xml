@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1053d27-733b-4988-9727-5fbf7365fa1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/com/example/servicemysql/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/com/example/servicemysql/UserInfoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/com/example/servicemysql/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DataSourceAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DataSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DataSourceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DynamicDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/JdbcContextHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/MyConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/ToDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/resources/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/neo4j/SmallExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/neo4j/SmallExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/neo4j/SmallExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/neo4j/SmallExample.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/SampleMovieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/SampleMovieApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/config/DataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/UserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/controller/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Movies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Roles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/Users/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/ACTED_IN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/ACTED_IN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/HAS_SEEN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/HAS_SEEN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/IS_FRIEND_OF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/IS_FRIEND_OF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/LabelClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/common/LabelClassName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/domain/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/repositories/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/repositories/UsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/java/movies/spring/data/neo4j/services/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../movies-java-spring-data-neo4j-master/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -74,9 +74,10 @@
     <session id="1521172831">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -93,11 +94,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jCypherJavaAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+            <state relative-caret-position="487">
+              <caret line="65" column="29" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -105,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/Neo4jJavaAPIDBOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="96">
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
@@ -114,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/TutorialRelationships.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="96">
               <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
@@ -123,7 +124,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/Tutorials.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="96">
               <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
@@ -132,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/neo4j/neo4j-graphdb-api/3.4.7/neo4j-graphdb-api-3.4.7.jar!/org/neo4j/graphdb/traversal/TraversalDescription.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="744">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -141,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jNativeJavaAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="-984">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -150,7 +151,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/MyRelationshipTypes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="96">
               <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
@@ -159,16 +160,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="312">
               <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/SmallExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
+            <state relative-caret-position="1392">
               <caret line="58" column="30" lean-forward="true" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -180,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="936">
               <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
             </state>
           </provider>
@@ -291,6 +292,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -364,8 +367,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,17 +440,19 @@
       <workItem from="1539306270345" duration="1363000" />
       <workItem from="1539572269736" duration="894000" />
       <workItem from="1539590511769" duration="3238000" />
+      <workItem from="1539875284546" duration="605000" />
+      <workItem from="1539876636448" duration="205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12032000" />
+    <option name="totallyTimeSpent" value="12842000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16971382" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -492,74 +495,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/Neo4jJavaAPIDBOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="96">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/TutorialRelationships.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="96">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/w3cschool/Tutorials.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="96">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/neo4j/neo4j-graphdb-api/3.4.7/neo4j-graphdb-api-3.4.7.jar!/org/neo4j/graphdb/traversal/TraversalDescription.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="744">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/MyRelationshipTypes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="96">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="312">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jCypherJavaAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jNativeJavaAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/SmallExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
+        <state relative-caret-position="1392">
           <caret line="58" column="30" lean-forward="true" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jNativeJavaAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-984">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/my/neo4j/api/Neo4jCypherJavaAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="65" column="29" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="29" />
         </state>
       </provider>
     </entry>

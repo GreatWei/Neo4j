@@ -7,7 +7,7 @@ import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RelationshipEntity(type = "IS_FRIEND_OF")
-public class IS_FRIEND_OF {
+public class IS_FRIEND_OF extends LabelClassName {
     @Id
     @GeneratedValue
     private Long id;
@@ -18,15 +18,13 @@ public class IS_FRIEND_OF {
 
     @EndNode
     private Users endUsers;
+    private String className = "IS_FRIEND_OF";
 
-    public IS_FRIEND_OF() {
-
+    public String getClassName() {
+        return "IS_FRIEND_OF";
     }
 
-    public IS_FRIEND_OF(Users startUsers, Users endUsers) {
-        this.startUsers = startUsers;
-        this.endUsers = endUsers;
-    }
+
 
     public Users getStartUsers() {
         return startUsers;
@@ -58,5 +56,27 @@ public class IS_FRIEND_OF {
 
     public void setFriend(String friend) {
         this.friend = friend;
+    }
+
+    private String mySelf = "IS_FRIEND_OF";
+
+    public String getMySelf() {
+        return "IS_FRIEND_OF";
+    }
+
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
+
+    @Override
+    public String toString() {
+        return "IS_FRIEND_OF{" +
+                "id=" + id +
+                ", friend='" + friend + '\'' +
+                ", startUsers=" + startUsers +
+                ", endUsers=" + endUsers +
+                ", className='" + className + '\'' +
+                ", mySelf='" + mySelf + '\'' +
+                '}';
     }
 }

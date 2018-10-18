@@ -2,6 +2,7 @@ package movies.spring.data.neo4j.services;
 
 import java.util.*;
 
+import com.alibaba.fastjson.JSONArray;
 import movies.spring.data.neo4j.config.DataSourceType;
 import movies.spring.data.neo4j.config.ToDataSource;
 import movies.spring.data.neo4j.domain.Users.Roles;
@@ -140,13 +141,12 @@ public class MovieService {
     @Transactional
     public Map<String, Object> path(String name,int deep) {
         Map<String, Object> map = new HashMap<String, Object>();
-        String[] list = name.split(",");
+        //String[] list = name.split(",");
         List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name,"",null);
 
 //        for (Map<String, Map<String, Object>> mapMap : mapList) {
-//            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
-//            Users n =  (Users)mapMap.get("n");
-//            System.out.println(n.toString());
+//
+//            System.out.println("r:"+mapMap.get("r"));
 //        }
         map.put("data", mapList);
         return map;
@@ -155,14 +155,25 @@ public class MovieService {
     public Map<String, Object> mixPath() {
         Map<String, Object> map = new HashMap<String, Object>();
   //      String[] list = name.split(",");
-    //    List<Map<String, Map<String, Object>>> mapList = usersRepository.mixPath();
+        List<Map<String, Map<String, Object>>> mapList = usersRepository.mixPath();
      //   List<Users> mapList = usersRepository.mixPath();
-//        for (Map<String, Map<String, Object>> mapMap : mapList) {
-//            System.out.println("n:" + ((LabelClassName)mapMap.get("n")).getClassName());
-//            Users n =  (Users)mapMap.get("n");
-//            System.out.println(n.toString());
-//        }
-        map.put("data", usersRepository.mixPath());
+        for (Map<String, Map<String, Object>> mapMap : mapList) {
+         //   System.out.println("source:" + ((LabelClassName)mapMap.get("source")).getClass());
+        //    System.out.println("r:"+mapMap.get("r"));
+          //  System.out.println("target:" + ((LabelClassName)mapMap.get("target")).getMySelf());
+
+        }
+        List<Map<String, Map<String, Object>>> mapList2 = usersRepository.mixPath2();
+        //   List<Users> mapList = usersRepository.mixPath();
+        for (Map<String, Map<String, Object>> mapMap : mapList2) {
+            //   System.out.println("n:" + ((LabelClassName)mapMap.get("n")).toString());
+             //  System.out.println("r:"+mapMap.get("r").toString());
+          //    System.out.println("m:" + ((LabelClassName)mapMap.get("m")).toString());
+
+        }
+      //  map.put("data", mapList);
+        map.put("data2", mapList2);
+       // map.put("data3",usersRepository.node());
         return map;
     }
 }

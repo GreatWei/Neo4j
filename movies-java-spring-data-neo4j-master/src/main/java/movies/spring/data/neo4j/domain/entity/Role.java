@@ -3,6 +3,7 @@ package movies.spring.data.neo4j.domain.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import movies.spring.data.neo4j.domain.common.LabelClassName;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.domain.entity.Person;
 import org.neo4j.ogm.annotation.*;
@@ -11,7 +12,7 @@ import org.neo4j.ogm.annotation.*;
  * @author Mark Angrish
  */
 @RelationshipEntity(type = "ACTED_INsss")
-public class Role {
+public class Role extends LabelClassName {
 
     @Id
     @GeneratedValue

@@ -7,7 +7,7 @@ import org.neo4j.ogm.annotation.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RelationshipEntity(type = "HAS_SEEN")
-public class HAS_SEEN {
+public class HAS_SEEN extends LabelClassName {
     @Id
     @GeneratedValue
     private Long id;
@@ -18,15 +18,14 @@ public class HAS_SEEN {
 
     @EndNode
     private Movies movies;
+    private String className = "HAS_SEEN";
 
-    public  HAS_SEEN(){
-
+    public String getClassName() {
+        return "HAS_SEEN";
     }
 
-    public HAS_SEEN(Users users,Movies movies){
-        this.users=users;
-        this.movies=movies;
-    }
+
+
 
     public Users getUsers() {
         return users;
@@ -58,5 +57,27 @@ public class HAS_SEEN {
 
     public void setStars(Long stars) {
         this.stars = stars;
+    }
+
+    private String mySelf = "HAS_SEEN";
+
+    public String getMySelf() {
+        return mySelf;
+    }
+
+    public void setMySelf(String mySelf) {
+        this.mySelf = mySelf;
+    }
+
+    @Override
+    public String toString() {
+        return "HAS_SEEN{" +
+                "id=" + id +
+                ", stars=" + stars +
+                ", users=" + users +
+                ", movies=" + movies +
+                ", className='" + className + '\'' +
+                ", mySelf='" + mySelf + '\'' +
+                '}';
     }
 }

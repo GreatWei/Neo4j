@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import movies.spring.data.neo4j.domain.common.LabelClassName;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -13,7 +14,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * @author Mark Angrish
  */
 @NodeEntity(label = "Movie")
-public class Movie {
+public class Movie extends LabelClassName {
 
     @Id
     @GeneratedValue

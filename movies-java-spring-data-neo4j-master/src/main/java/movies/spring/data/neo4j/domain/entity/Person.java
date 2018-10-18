@@ -4,6 +4,7 @@ package movies.spring.data.neo4j.domain.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import movies.spring.data.neo4j.domain.common.LabelClassName;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
@@ -14,7 +15,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * @author Mark Angrish
  */
 @NodeEntity(label = "Person")
-public class Person {
+public class Person extends LabelClassName {
 
     @Id
     @GeneratedValue
