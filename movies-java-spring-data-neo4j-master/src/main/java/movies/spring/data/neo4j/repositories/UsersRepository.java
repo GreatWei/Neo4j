@@ -31,11 +31,13 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
     @Query("match (n:USERS{name:\"Kate Smith\"}),(m:MOVIES{name:\"Fargo\"}),p=AllShortestPaths((n)-[*]-(m)) return p")
     Collection<Users> shortPath();
 
-    @Query("match (n:USERS)-[r*1..1]-(m) where n.name =\"Kate Smith\" return r,n,m\n" +
+    @Query("match (n:USERS)-[r*1..2]-(m) where n.name =\"Kate Smith\" return n,r,m\n" +
             "union\n" +
-            "match (n:MOVIES)-[r*1..1]-(m) where n.name=\"Fargo\" return r,n,m\n" +
+            "match (n:MOVIES)-[r*1..2]-(m) where n.name=\"Fargo\" return n,r,m\n" +
             "union\n" +
-            "match (n:USERS)-[r*1..1]-(m) where n.name =\"Kate Smith\" return r,n,m")
+            "match (n:USERS)-[r*1..2]-(m) where n.name =\"Kate Smith\" return n,r,m\n"+
+            "union\n"+
+            "match (n:ROLES)-[r*1..2]-(m) where n.name=\"HeHHH\" return n,r,m\n" )
     List<Map<String, Map<String, Object>>> path(@Param("name") String name, @Param("deep") String deep, @Param("nameList") String[] nameList);
 
     @Query("optional match(u:USERS) where u.name in[\"Kate Smith\",\"John Johnson\"] \n" +
@@ -64,7 +66,7 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
     List<Map<String, Map<String, Object>>> mixPath2();
 
 
-    @Query(" match (n) return n")
-    List<Map<String, Map<String, Object>>> node();
+    @Query(" match (n) where id(n) in {idList}  return n")
+    List<Map<String, Map<String, Object>>> node(@Param("idList") List<Long> idList);
 
 }

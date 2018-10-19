@@ -144,10 +144,11 @@ public class MovieService {
         //String[] list = name.split(",");
         List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name,"",null);
 
-//        for (Map<String, Map<String, Object>> mapMap : mapList) {
-//
-//            System.out.println("r:"+mapMap.get("r"));
-//        }
+        for (Map<String, Map<String, Object>> mapMap : mapList) {
+          //  System.out.println("n:"+((LabelClassName)mapMap.get("n")).toString());
+          //  System.out.println("r:"+((LabelClassName)mapMap.get("r")).toString());
+          //  System.out.println("m:"+((LabelClassName)mapMap.get("m")).toString());
+        }
         map.put("data", mapList);
         return map;
     }
@@ -159,8 +160,8 @@ public class MovieService {
      //   List<Users> mapList = usersRepository.mixPath();
         for (Map<String, Map<String, Object>> mapMap : mapList) {
          //   System.out.println("source:" + ((LabelClassName)mapMap.get("source")).getClass());
-        //    System.out.println("r:"+mapMap.get("r"));
-          //  System.out.println("target:" + ((LabelClassName)mapMap.get("target")).getMySelf());
+            System.out.println("r:"+mapMap.get("r"));
+           // System.out.println("target:" + ((LabelClassName)mapMap.get("target")).getMySelf());
 
         }
         List<Map<String, Map<String, Object>>> mapList2 = usersRepository.mixPath2();
@@ -171,8 +172,14 @@ public class MovieService {
           //    System.out.println("m:" + ((LabelClassName)mapMap.get("m")).toString());
 
         }
-      //  map.put("data", mapList);
-        map.put("data2", mapList2);
+        List<Long> idList = new ArrayList<Long>();
+        idList.add(10L);
+        idList.add(7L);
+
+        usersRepository.node(idList);
+       // map.put("data", mapList);
+        map.put("node",usersRepository.node(idList));
+        //map.put("data2", mapList2);
        // map.put("data3",usersRepository.node());
         return map;
     }

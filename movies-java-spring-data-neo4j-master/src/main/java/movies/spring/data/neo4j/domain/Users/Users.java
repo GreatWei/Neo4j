@@ -64,11 +64,11 @@ public class Users extends LabelClassName {
     }
 
     public String getName() {
-        return name;
+        return name+"加密处理2";
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name+"加密处理";
     }
 
     public String getClassName(){

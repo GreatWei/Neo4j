@@ -84,8 +84,8 @@ public class MovieController {
     }
 
     @GetMapping("/mixPath")
-    public Map<String, Object> mixPath() {
-        System.out.println("All");
+    public Map<String, Object> mixPath(ArrayList<Long> idList) {
+        System.out.println("idList:"+idList.toString());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("success", movieService.mixPath());
         return map;
