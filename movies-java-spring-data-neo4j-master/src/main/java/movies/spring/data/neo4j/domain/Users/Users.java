@@ -21,15 +21,15 @@ public class Users extends LabelClassName {
     private Long id;
     private String name;
 
-    @JsonIgnoreProperties("startUsers")
-    @Relationship(type = "IS_FRIEND_OF")
-    private List<IS_FRIEND_OF> out_friend_of_user = new ArrayList<IS_FRIEND_OF>();
-
-    private String className = "Users";
-    //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
-    @JsonIgnoreProperties("users")
-    @Relationship(type = "HAS_SEEN", direction = Relationship.OUTGOING)
-    private List<HAS_SEEN> has_seen_movies = new ArrayList<HAS_SEEN>();
+//    @JsonIgnoreProperties("startUsers")
+//    @Relationship(type = "IS_FRIEND_OF")
+//    private List<IS_FRIEND_OF> out_friend_of_user = new ArrayList<IS_FRIEND_OF>();
+//
+//    private String className = "Users";
+//    //忽略掉HAS_SEEN中的users（自身节点），不然会递归调用自身节点，形成死循环
+//    @JsonIgnoreProperties("users")
+//    @Relationship(type = "HAS_SEEN", direction = Relationship.OUTGOING)
+//    private List<HAS_SEEN> has_seen_movies = new ArrayList<HAS_SEEN>();
 
 
 //    private final String className = "Users";
@@ -39,21 +39,21 @@ public class Users extends LabelClassName {
 //    }
 
 
-    public List<IS_FRIEND_OF> getOut_friend_of_user() {
-        return out_friend_of_user;
-    }
-
-    public void setOut_friend_of_user(List<IS_FRIEND_OF> out_friend_of_user) {
-        this.out_friend_of_user = out_friend_of_user;
-    }
-
-    public List<HAS_SEEN> getHas_seen_movies() {
-        return has_seen_movies;
-    }
-
-    public void setHas_seen_movies(List<HAS_SEEN> has_seen_movies) {
-        this.has_seen_movies = has_seen_movies;
-    }
+//    public List<IS_FRIEND_OF> getOut_friend_of_user() {
+//        return out_friend_of_user;
+//    }
+//
+//    public void setOut_friend_of_user(List<IS_FRIEND_OF> out_friend_of_user) {
+//        this.out_friend_of_user = out_friend_of_user;
+//    }
+//
+//    public List<HAS_SEEN> getHas_seen_movies() {
+//        return has_seen_movies;
+//    }
+//
+//    public void setHas_seen_movies(List<HAS_SEEN> has_seen_movies) {
+//        this.has_seen_movies = has_seen_movies;
+//    }
 
     public Long getId() {
         return id;
@@ -86,15 +86,5 @@ public class Users extends LabelClassName {
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", out_friend_of_user=" + out_friend_of_user +
-                ", className='" + className + '\'' +
-                ", has_seen_movies=" + has_seen_movies +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

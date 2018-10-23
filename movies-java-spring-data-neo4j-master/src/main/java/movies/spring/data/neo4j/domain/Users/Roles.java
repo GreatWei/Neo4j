@@ -48,13 +48,5 @@ public class Roles extends LabelClassName {
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "Roles{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", className='" + className + '\'' +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

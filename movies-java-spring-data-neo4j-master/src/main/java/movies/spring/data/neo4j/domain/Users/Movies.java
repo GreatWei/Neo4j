@@ -21,9 +21,9 @@ public class Movies extends LabelClassName {
     private Long id;
     private String name;
 
-    @JsonIgnoreProperties("movies")
-    @Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
-    private List<ACTED_IN> in_acted_in;
+//    @JsonIgnoreProperties("movies")
+//    @Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
+//    private List<ACTED_IN> in_acted_in;
 
   //  private final String className = "Movies";
   private String className = "Movies";
@@ -31,13 +31,13 @@ public class Movies extends LabelClassName {
         return "Movies";
     }
 
-    public List<ACTED_IN> getIn_acted_in() {
-        return in_acted_in;
-    }
-
-    public void setIn_acted_in(List<ACTED_IN> in_acted_in) {
-        this.in_acted_in = in_acted_in;
-    }
+//    public List<ACTED_IN> getIn_acted_in() {
+//        return in_acted_in;
+//    }
+//
+//    public void setIn_acted_in(List<ACTED_IN> in_acted_in) {
+//        this.in_acted_in = in_acted_in;
+//    }
 
     public Long getId() {
         return id;
@@ -65,14 +65,5 @@ public class Movies extends LabelClassName {
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "Movies{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", in_acted_in=" + in_acted_in +
-                ", className='" + className + '\'' +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

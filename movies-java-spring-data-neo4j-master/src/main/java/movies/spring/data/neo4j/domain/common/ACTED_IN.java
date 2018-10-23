@@ -71,15 +71,5 @@ public class ACTED_IN extends  LabelClassName{
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "ACTED_IN{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", roles=" + roles +
-                ", movies=" + movies +
-                ", className='" + className + '\'' +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

@@ -143,12 +143,17 @@ public class MovieService {
         Map<String, Object> map = new HashMap<String, Object>();
         //String[] list = name.split(",");
         List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name,"",null);
-
         for (Map<String, Map<String, Object>> mapMap : mapList) {
-          //  System.out.println("n:"+((LabelClassName)mapMap.get("n")).toString());
-          //  System.out.println("r:"+((LabelClassName)mapMap.get("r")).toString());
-          //  System.out.println("m:"+((LabelClassName)mapMap.get("m")).toString());
+            System.out.println("source:" + ((LabelClassName)mapMap.get("n")).getClass());
+           List<LabelClassName> labelClassNames = (List<LabelClassName>) mapMap.get("r");
+           for (LabelClassName labelClassName:labelClassNames){
+               System.out.println("labelClassName:"+labelClassName.getMySelf());
+           }
+            System.out.println("target:" + ((LabelClassName)mapMap.get("m")).getMySelf());
+
         }
+        System.out.println(mapList.toArray());
+
         map.put("data", mapList);
         return map;
     }

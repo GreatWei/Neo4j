@@ -68,15 +68,5 @@ public class IS_FRIEND_OF extends LabelClassName {
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "IS_FRIEND_OF{" +
-                "id=" + id +
-                ", friend='" + friend + '\'' +
-                ", startUsers=" + startUsers +
-                ", endUsers=" + endUsers +
-                ", className='" + className + '\'' +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

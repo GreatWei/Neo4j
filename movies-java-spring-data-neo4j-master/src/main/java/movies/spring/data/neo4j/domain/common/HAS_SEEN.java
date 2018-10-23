@@ -69,15 +69,5 @@ public class HAS_SEEN extends LabelClassName {
         this.mySelf = mySelf;
     }
 
-    @Override
-    public String toString() {
-        return "HAS_SEEN{" +
-                "id=" + id +
-                ", stars=" + stars +
-                ", users=" + users +
-                ", movies=" + movies +
-                ", className='" + className + '\'' +
-                ", mySelf='" + mySelf + '\'' +
-                '}';
-    }
+
 }

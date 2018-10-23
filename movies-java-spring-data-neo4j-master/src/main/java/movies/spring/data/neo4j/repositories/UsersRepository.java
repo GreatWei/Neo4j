@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 public interface UsersRepository extends Neo4jRepository<Map<String, Map<String, Object>>, Long> {
@@ -49,7 +50,7 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
             "with source,target where id(source)<id(target)\n" +
             "match path=allshortestpaths((source)-[r*1..]-(target)) where all(x in nodes(path) where 1=1)\n" +
             "with source,r,target\n" +
-            "return r\n")
+            "return source,r,target\n")
     List<Map<String, Map<String, Object>>> mixPath();
 
     @Query("optional match(u:USERS) where u.name in[\"John Johnson\"] \n" +
@@ -64,6 +65,7 @@ public interface UsersRepository extends Neo4jRepository<Map<String, Map<String,
             "match (n)-[r1]-(m) where r1 in r \n"+
             "return n,r1,m\n")
     List<Map<String, Map<String, Object>>> mixPath2();
+
 
 
     @Query(" match (n) where id(n) in {idList}  return n")
