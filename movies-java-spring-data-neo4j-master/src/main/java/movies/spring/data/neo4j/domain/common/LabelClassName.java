@@ -10,4 +10,10 @@ public class LabelClassName {
     public void setMySelf(String mySelf) {
         this.mySelf = mySelf;
     }
+    private String className = "LabelClassName";
+
+    public String getClassName() {
+        return "LabelClassName";
+    }
+
 }

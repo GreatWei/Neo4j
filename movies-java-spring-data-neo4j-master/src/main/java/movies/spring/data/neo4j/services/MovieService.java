@@ -7,6 +7,7 @@ import movies.spring.data.neo4j.config.DataSourceType;
 import movies.spring.data.neo4j.config.ToDataSource;
 import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
+import movies.spring.data.neo4j.domain.common.ACTED_IN;
 import movies.spring.data.neo4j.domain.common.LabelClassName;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.domain.entity.Person;
@@ -137,19 +138,36 @@ public class MovieService {
         return rolesRepository.path_Roles(name);
     }
 
-  //  @ToDataSource(DataSourceType.Neo4j)
+    //  @ToDataSource(DataSourceType.Neo4j)
     @Transactional
-    public Map<String, Object> path(String name,int deep) {
+    public Map<String, Object> path(String name, int deep) {
         Map<String, Object> map = new HashMap<String, Object>();
         //String[] list = name.split(",");
-        List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name,"",null);
+        List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name, "", null);
+
+        StringBuilder viewString= new StringBuilder();
+
         for (Map<String, Map<String, Object>> mapMap : mapList) {
-            System.out.println("source:" + ((LabelClassName)mapMap.get("n")).getClass());
-           List<LabelClassName> labelClassNames = (List<LabelClassName>) mapMap.get("r");
-           for (LabelClassName labelClassName:labelClassNames){
-               System.out.println("labelClassName:"+labelClassName.getMySelf());
-           }
-            System.out.println("target:" + ((LabelClassName)mapMap.get("m")).getMySelf());
+            System.out.println("source:" + ((LabelClassName) mapMap.get("n")).getClass());
+            List<LabelClassName> labelClassNames = (List<LabelClassName>) mapMap.get("r");
+            LabelClassName tmp = (LabelClassName) mapMap.get("n");
+            for (LabelClassName labelClassName : labelClassNames) {
+
+                switch (labelClassName.getClassName()) {
+                    case "ACTED_IN":
+                        ACTED_IN acted_in = (ACTED_IN) labelClassName;
+                        if ()
+                        viewString.append("<--[").append(acted_in.getClassName()).append("]--");
+                        break;
+                    case "HAS_SEEN":
+                        break;
+                    case "IS_FRIEND_OF":
+                        break;
+                    default:
+                        break;
+                }
+            }
+            System.out.println("target:" + ((LabelClassName) mapMap.get("m")).getMySelf());
 
         }
         System.out.println(mapList.toArray());
@@ -157,24 +175,25 @@ public class MovieService {
         map.put("data", mapList);
         return map;
     }
+
     @Transactional
     public Map<String, Object> mixPath() {
         Map<String, Object> map = new HashMap<String, Object>();
-  //      String[] list = name.split(",");
+        //      String[] list = name.split(",");
         List<Map<String, Map<String, Object>>> mapList = usersRepository.mixPath();
-     //   List<Users> mapList = usersRepository.mixPath();
+        //   List<Users> mapList = usersRepository.mixPath();
         for (Map<String, Map<String, Object>> mapMap : mapList) {
-         //   System.out.println("source:" + ((LabelClassName)mapMap.get("source")).getClass());
-            System.out.println("r:"+mapMap.get("r"));
-           // System.out.println("target:" + ((LabelClassName)mapMap.get("target")).getMySelf());
+            //   System.out.println("source:" + ((LabelClassName)mapMap.get("source")).getClass());
+            System.out.println("r:" + mapMap.get("r"));
+            // System.out.println("target:" + ((LabelClassName)mapMap.get("target")).getMySelf());
 
         }
         List<Map<String, Map<String, Object>>> mapList2 = usersRepository.mixPath2();
         //   List<Users> mapList = usersRepository.mixPath();
         for (Map<String, Map<String, Object>> mapMap : mapList2) {
             //   System.out.println("n:" + ((LabelClassName)mapMap.get("n")).toString());
-             //  System.out.println("r:"+mapMap.get("r").toString());
-          //    System.out.println("m:" + ((LabelClassName)mapMap.get("m")).toString());
+            //  System.out.println("r:"+mapMap.get("r").toString());
+            //    System.out.println("m:" + ((LabelClassName)mapMap.get("m")).toString());
 
         }
         List<Long> idList = new ArrayList<Long>();
@@ -182,10 +201,12 @@ public class MovieService {
         idList.add(7L);
 
         usersRepository.node(idList);
-       // map.put("data", mapList);
-        map.put("node",usersRepository.node(idList));
+        // map.put("data", mapList);
+        map.put("node", usersRepository.node(idList));
         //map.put("data2", mapList2);
-       // map.put("data3",usersRepository.node());
+        // map.put("data3",usersRepository.node());
         return map;
     }
+
+
 }
