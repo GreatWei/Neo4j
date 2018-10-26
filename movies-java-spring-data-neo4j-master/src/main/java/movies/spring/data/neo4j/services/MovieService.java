@@ -5,9 +5,12 @@ import java.util.*;
 import com.alibaba.fastjson.JSONArray;
 import movies.spring.data.neo4j.config.DataSourceType;
 import movies.spring.data.neo4j.config.ToDataSource;
+import movies.spring.data.neo4j.domain.Users.Movies;
 import movies.spring.data.neo4j.domain.Users.Roles;
 import movies.spring.data.neo4j.domain.Users.Users;
 import movies.spring.data.neo4j.domain.common.ACTED_IN;
+import movies.spring.data.neo4j.domain.common.HAS_SEEN;
+import movies.spring.data.neo4j.domain.common.IS_FRIEND_OF;
 import movies.spring.data.neo4j.domain.common.LabelClassName;
 import movies.spring.data.neo4j.domain.entity.Movie;
 import movies.spring.data.neo4j.domain.entity.Person;
@@ -16,6 +19,7 @@ import movies.spring.data.neo4j.repositories.MovieRepository;
 import movies.spring.data.neo4j.repositories.PersonRepository;
 import movies.spring.data.neo4j.repositories.RolesRepository;
 import movies.spring.data.neo4j.repositories.UsersRepository;
+import movies.spring.data.neo4j.utils.RelationShipsUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -145,32 +149,44 @@ public class MovieService {
         //String[] list = name.split(",");
         List<Map<String, Map<String, Object>>> mapList = usersRepository.path(name, "", null);
 
-        StringBuilder viewString= new StringBuilder();
-
+        StringBuilder viewString = new StringBuilder();
+        String tmp = null;
+        Map<String, Object> map1 = new HashMap<String, Object>();
         for (Map<String, Map<String, Object>> mapMap : mapList) {
-            System.out.println("source:" + ((LabelClassName) mapMap.get("n")).getClass());
+            System.out.println("source:" + ((LabelClassName) mapMap.get("n")).getId());
             List<LabelClassName> labelClassNames = (List<LabelClassName>) mapMap.get("r");
-            LabelClassName tmp = (LabelClassName) mapMap.get("n");
-            for (LabelClassName labelClassName : labelClassNames) {
-
+            LabelClassName exp = (LabelClassName) mapMap.get("n");
+            System.out.println("size:" + labelClassNames.size());
+            viewString.setLength(0);
+            tmp = "";
+            for (int i = 0; i < labelClassNames.size(); i++) {
+                LabelClassName labelClassName = labelClassNames.get(i);
                 switch (labelClassName.getClassName()) {
                     case "ACTED_IN":
-                        ACTED_IN acted_in = (ACTED_IN) labelClassName;
-                        if ()
-                        viewString.append("<--[").append(acted_in.getClassName()).append("]--");
+                        tmp = RelationShipsUtils.ACTED_IN_Rel(viewString, labelClassName, exp);
                         break;
                     case "HAS_SEEN":
+                        tmp = RelationShipsUtils.HAS_SEEN_Rel(viewString, labelClassName, exp);
                         break;
                     case "IS_FRIEND_OF":
+                        tmp = RelationShipsUtils.IS_FRIEND_OF_Rel(viewString, labelClassName, exp);
                         break;
                     default:
                         break;
                 }
+                exp = RelationShipsUtils.getExps();
+                //最后节点不允许加进去
+                if (i < (labelClassNames.size() - 1)) {
+                    viewString.append(tmp);
+                }
             }
-            System.out.println("target:" + ((LabelClassName) mapMap.get("m")).getMySelf());
+
+            map1.put("mid", viewString);
+            mapMap.put("v", map1);
+            System.out.println("viewString:" + viewString);
+            System.out.println("target:" + ((LabelClassName) mapMap.get("m")).getId());
 
         }
-        System.out.println(mapList.toArray());
 
         map.put("data", mapList);
         return map;
